@@ -1,30 +1,30 @@
-//Faarouq Asaju 3105883
 public class Rhombus extends Shape {
-    // Declare a private double variable for the side length of the rhombus.
     private double sideLength;
+    private double diagonal1; // First diagonal
+    private double diagonal2; // Second diagonal
 
-    // Constructor for the Rhombus class
-    public Rhombus(String name, double sideLength) {
-        super(name); // Call the constructor of the parent Shape class with the name.
-        this.sideLength = sideLength; // Set the side length of this rhombus.
+    // Modified constructor to include diagonals
+    public Rhombus(String name, double sideLength, double diagonal1, double diagonal2) {
+        super(name);
+        this.sideLength = sideLength;
+        this.diagonal1 = diagonal1;
+        this.diagonal2 = diagonal2;
     }
 
-    //to override the abstract area method from Shape.
     @Override
     public double area() {
-        return 0;
+        // Area = (d1 * d2) / 2
+        return (diagonal1 * diagonal2) / 2;
     }
 
-    //to override the abstract perimeter method from Shape.
     @Override
     public double perimeter() {
-        return 0;
+        // Perimeter = 4 * side length
+        return 4 * sideLength;
     }
 
-    // to override the toString method to provide a string representation of the Rhombus.
     @Override
     public String toString() {
-        // Include the string representation from Shape and add the side length information.
-        return super.toString() + " (side length: " + sideLength + ")";
+        return super.toString() + " (side length: " + sideLength + ", diagonals: " + diagonal1 + ", " + diagonal2 + ")";
     }
 }

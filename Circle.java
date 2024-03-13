@@ -12,13 +12,13 @@ public class Circle extends Shape {
     // Override the abstract area method from Shape.
     @Override
     public double area() {
-        return 0; //
+        return Math.PI * Math.pow(radius, 2); // πr^2
     }
 
     // Override the abstract perimeter method from Shape.
     @Override
     public double perimeter() {
-        return 0;
+        return 2 * Math.PI * radius; // 2πr
     }
 
     // Override the toString method to provide a string representation of the Circle.

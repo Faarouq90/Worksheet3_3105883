@@ -14,13 +14,16 @@ public class RightAngledTriangle extends Shape {
     // Override the abstract area method from Shape.
     @Override
     public double area() {
-        return 0;
+        // Area = 1/2 * base * height
+        return 0.5 * base * height;
     }
 
     // Override the abstract perimeter method from Shape
     @Override
     public double perimeter() {
-        return 0;
+        // Perimeter = base + height + hypotenuse
+        double hypotenuse = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2));
+        return base + height + hypotenuse;
     }
 
     // Override the toString method to provide a string representation of the RightAngledTriangle.
