@@ -1,3 +1,4 @@
+//Faarouq Asaju 3105883
 public class Rhombus extends Shape {
     private double sideLength;
     private double diagonal; // Longer diagonal
