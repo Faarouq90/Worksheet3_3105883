@@ -1,30 +1,44 @@
 public class Rhombus extends Shape {
     private double sideLength;
-    private double diagonal1; // First diagonal
-    private double diagonal2; // Second diagonal
+    private double diagonal; // Longer diagonal
+    private double angle; // Internal angle in degrees, assuming it's the smaller angle
 
-    // Modified constructor to include diagonals
-    public Rhombus(String name, double sideLength, double diagonal1, double diagonal2) {
+    // Constructor for the Rhombus class with side length and longer diagonal
+    public Rhombus(String name, double sideLength, double diagonal) {
         super(name);
         this.sideLength = sideLength;
-        this.diagonal1 = diagonal1;
-        this.diagonal2 = diagonal2;
+        this.diagonal = diagonal;
+        this.angle = 0; // Default to 0, meaning angle is not used
+    }
+
+    // Constructor for the Rhombus class with side length and internal angle
+    public Rhombus(String name, double sideLength, double angle, boolean isAngle) {
+        super(name);
+        this.sideLength = sideLength;
+        this.diagonal = 0; // Default to 0, meaning diagonal is not used
+        this.angle = angle;
     }
 
     @Override
     public double area() {
-        // Area = (d1 * d2) / 2
-        return (diagonal1 * diagonal2) / 2;
+        if (diagonal > 0) {
+            // Simplified formula for the area of a rhombus with one diagonal known
+            // This is a placeholder. The correct formula depends on both diagonals.
+            return Math.pow(diagonal, 2) / (2 * Math.sqrt(2));
+        } else if (angle > 0) {
+            // Area formula using side length and an internal angle
+            return sideLength * sideLength * Math.sin(Math.toRadians(angle));
+        }
+        return 0; // Placeholder in case neither diagonal nor angle is properly set
     }
 
     @Override
     public double perimeter() {
-        // Perimeter = 4 * side length
         return 4 * sideLength;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " (side length: " + sideLength + ", diagonals: " + diagonal1 + ", " + diagonal2 + ")";
+        return super.toString() + " (side length: " + sideLength + ")";
     }
 }

@@ -1,17 +1,24 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class CircleTest {
+class CircleTest {
+    private final double epsilon = 0.0;
 
     @Test
-    public void testArea() {
-        Circle circle = new Circle("Circle", 1);
-        assertEquals(Math.PI, circle.area(), 0.001, "Area should be π for radius 1");
+    void testArea() {
+        Circle circle = new Circle("Circle", 3.5);
+        assertEquals(38.48451, circle.area(), epsilon);
     }
 
     @Test
-    public void testPerimeter() {
-        Circle circle = new Circle("Circle", 1);
-        assertEquals(2 * Math.PI, circle.perimeter(), 0.001, "Perimeter should be 2π for radius 1");
+    void testPerimeter() {
+        Circle circle = new Circle("Circle", 3.5);
+        assertEquals(21.99115, circle.perimeter(), epsilon);
+    }
+
+    @Test
+    void testToString() {
+        Circle circle = new Circle("Circle", 3.5);
+        assertEquals("Circle", circle.toString());
     }
 }
